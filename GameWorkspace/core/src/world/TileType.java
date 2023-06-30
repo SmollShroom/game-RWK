@@ -90,7 +90,6 @@ public enum TileType {
 	SAND_WATTER10(83,true),
 	SAND_WATTER11(84,true),
 	SAND_WATTER12(85,true),
-
 	;
 
 	public static final int TILE_SIZE = 64;
