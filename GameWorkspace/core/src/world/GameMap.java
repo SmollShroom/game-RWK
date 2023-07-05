@@ -2,10 +2,13 @@ package world;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import entities.Entity;
+import entities.EntityLoader;
 import entities.Player;
 
 public abstract class GameMap {
@@ -14,7 +17,7 @@ public abstract class GameMap {
 	
 	public GameMap() {
 		entities = new ArrayList<Entity>();
-		entities.add(new Player(1100, 700, this));
+		entities.addAll(EntityLoader.loadEntities("map1", this, entities));
 	}
 	
 	public void render (OrthographicCamera camera, SpriteBatch batch) {
@@ -28,6 +31,10 @@ public abstract class GameMap {
 			entity.update(delta);
 		}
 				
+		if(Gdx.input.isKeyJustPressed(Keys.J)) {
+			EntityLoader.saveEntities("map1", entities);
+			System.out.println("saved?");
+		}
 	}
 	
 	public abstract void dispose ();

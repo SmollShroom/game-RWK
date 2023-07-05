@@ -23,9 +23,8 @@ public class Player extends Entity{
 	Texture img;	////
 	
 	
-	
-	public Player(float x, float y, GameMap map) {
-		super(x, y, EntityType.PLAYER, map);
+	public void create(EntitySnapshot snapshot, EntityType type, GameMap map){
+		super.create(snapshot, type, map);
 		
 		playerWalkSheet = new Texture(Gdx.files.internal("data/player/player_walking_Sheet.png"));
 		PlayerAnimations = new Animation[5];
@@ -39,6 +38,8 @@ public class Player extends Entity{
 		PlayerAnimations[4] = new Animation<TextureRegion>(PLAYER_ANIMATION_SPEED, AnimSpriteSheet[4]);	// DYING
 		
 		img = new Texture(Gdx.files.internal("data/dummy.png"));	////
+		
+		//spawnRadius = snapshot.getFloat("SwapnRadius", 50);
 	}
 	
 	@Override
@@ -87,6 +88,10 @@ public class Player extends Entity{
 		
 	}
 	
-	
+ 	public EntitySnapshot getSaveSnapshot() {
+		EntitySnapshot snapshot = super.getSaveSnapshot();
+//		snapshot.putFloat("SpawnRadius", PLAYER_ANIMATION_SPEED);
+		return snapshot;
+	}
 
 }
