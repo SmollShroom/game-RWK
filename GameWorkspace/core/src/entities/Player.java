@@ -51,17 +51,11 @@ public class Player extends Entity{
 			moveX(-SPEED * deltaTime);
 			System.out.println("W");
 			
-//			if (playerScreenY > game.HEIGHT - game.TILE_SIZE)
-//				playerScreenY = game.HEIGHT - game.TILE_SIZE;
-			
 			currentAnim = 0;
 		}
 		if (Gdx.input.isKeyPressed(Keys.S)) {
 			moveX(SPEED * deltaTime);
 			System.out.println("S");
-
-//			if (playerScreenY < 0)
-//				playerScreenY = 0;
 			
 			currentAnim = 1;
 
@@ -69,9 +63,6 @@ public class Player extends Entity{
 		if (Gdx.input.isKeyPressed(Keys.A)) {
 			moveY(-SPEED * deltaTime);
 			System.out.println("A");
-
-//			if (playerScreenX < 0)
-//				playerScreenX = 0;
 			
 			currentAnim = 2;
 
@@ -80,8 +71,6 @@ public class Player extends Entity{
 			moveY(-SPEED * deltaTime);
 			System.out.println("D");
 
-//			if (playerScreenX > game.WIDTH - game.TILE_SIZE)
-//				playerScreenX = game.WIDTH - game.TILE_SIZE;
 			currentAnim = 3;
 		}
 		

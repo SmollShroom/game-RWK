@@ -24,9 +24,9 @@ public abstract class GameMap {
 	}
 	
 	public void update (float delta) {
-//		for(Entity entity : entities) {
-//			entity.update(delta);
-//		}
+		for(Entity entity : entities) {
+			entity.update(delta);
+		}
 				
 	}
 	
