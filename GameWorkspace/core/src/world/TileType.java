@@ -21,7 +21,7 @@ public enum TileType {
 	SAND_GRASS11(14,false),
 	SAND_GRASS12(15,false),
 	TREE1(16,true),
-	DIRT1(17,true),
+	DIRT1(17,false),
 	WATER1(18,true),
 	WATER2(19,true),
 	WATER_GRASS1(20,true),

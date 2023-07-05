@@ -14,7 +14,7 @@ public abstract class GameMap {
 	
 	public GameMap() {
 		entities = new ArrayList<Entity>();
-		entities.add(new Player(200, 200, this));
+		entities.add(new Player(1100, 700, this));
 	}
 	
 	public void render (OrthographicCamera camera, SpriteBatch batch) {
@@ -47,15 +47,17 @@ public abstract class GameMap {
 			return true;
 		}
 		
-		//checks surrounding tiles of the entity
+		//checks surrounding tiles of the entity		//checks ALL Layers for collidables!!!
 		for( int row = (int) (y / TileType.TILE_SIZE); row < Math.ceil((y + height) / TileType.TILE_SIZE); row++){	//Math.ceil rounds up
-			for( int col = (int) (x / TileType.TILE_SIZE); row < Math.ceil((x + height) / TileType.TILE_SIZE); row++){
+			for( int col = (int) (x / TileType.TILE_SIZE); col < Math.ceil((x + width) / TileType.TILE_SIZE); col++){
+				
 				for(int layer = 0; layer < getLayers(); layer++){
 					TileType type = getTileTypeByCoordinate(layer, col,row);
 					if(type != null && type.isCollidable()) {
 						return true;
 					}
 				}
+				
 			}
 		}
 		

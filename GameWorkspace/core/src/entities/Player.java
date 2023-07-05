@@ -12,7 +12,7 @@ import world.GameMap;
 public class Player extends Entity{
 
 	float stateTime;
-	private static final int SPEED = 120;
+	private static final int SPEED = 160;
 	
 	public static final float PLAYER_ANIMATION_SPEED = 0.5f;
 	public static final int PLAYER_SIZE_PIXLE = 32;
@@ -48,28 +48,28 @@ public class Player extends Entity{
 		
 
 		if (Gdx.input.isKeyPressed(Keys.W)) {
-			moveX(-SPEED * deltaTime);
-			System.out.println("W");
+			moveY(SPEED * deltaTime);
+//			System.out.println("W");
 			
 			currentAnim = 0;
 		}
 		if (Gdx.input.isKeyPressed(Keys.S)) {
-			moveX(SPEED * deltaTime);
-			System.out.println("S");
+			moveY(-SPEED * deltaTime);
+//			System.out.println("S");
 			
 			currentAnim = 1;
 
 		}
 		if (Gdx.input.isKeyPressed(Keys.A)) {
-			moveY(-SPEED * deltaTime);
-			System.out.println("A");
+			moveX(-SPEED * deltaTime);
+//			System.out.println("A");
 			
 			currentAnim = 2;
 
 		}
 		if (Gdx.input.isKeyPressed(Keys.D)) {
-			moveY(-SPEED * deltaTime);
-			System.out.println("D");
+			moveX(SPEED * deltaTime);
+//			System.out.println("D");
 
 			currentAnim = 3;
 		}

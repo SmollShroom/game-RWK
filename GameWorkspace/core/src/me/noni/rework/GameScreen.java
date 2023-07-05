@@ -80,6 +80,7 @@ public class GameScreen implements Screen {
 			game.batch.setProjectionMatrix(camera.combined);	// tell the SpriteBatch to render in the coordinate system specified by the camera.
 			
 			gameMap.render(camera, game.batch);
+			gameMap.update(delta);
 			
 				game.batch.begin();		///////////////////////////////////////////				
 				

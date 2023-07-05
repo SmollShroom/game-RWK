@@ -33,7 +33,7 @@ public abstract class Entity {
 	protected void moveY(float amount) {
 		float newY = this.pos.y + amount;
 		if(!map.doesRectCoolideWithMap(pos.x, newY, getWidth(), getHeight())) {
-			this.pos.x = newY;
+			this.pos.y = newY;
 			System.out.println("moveY " + newY);
 		}
 	}
