@@ -13,17 +13,24 @@ import entities.Player;
 
 public abstract class GameMap {
 
-	protected ArrayList<Entity>entities;
+	public ArrayList<Entity>entities;
+	public OrthographicCamera camera;
 	
 	public GameMap() {
+
 		entities = new ArrayList<Entity>();
-		entities.addAll(EntityLoader.loadEntities("map1", this, entities));
+//		entities.addAll(EntityLoader.loadEntities("map1", this, entities));
+
+		Entity player = new Player(1100,700,this);
+		entities.add(player);
 	}
 	
 	public void render (OrthographicCamera camera, SpriteBatch batch) {
+		this.camera = camera;
 		for(Entity entity : entities) {
 			entity.render(batch);
 		}
+		
 	}
 	
 	public void update (float delta) {

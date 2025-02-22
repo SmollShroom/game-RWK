@@ -6,12 +6,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.badlogic.gdx.utils.reflect.ReflectionException;
 
+import Monster.Slime_Green;
 import world.GameMap;
 
 @SuppressWarnings("rawtypes")
 public enum EntityType {
 
-	PLAYER("Player", Player.class, 64, 64);
+	PLAYER("Player", Player.class, 64, 64),
+	SMILE_GREEN("slime green", Slime_Green.class, 64, 64);
 	
 	private String id;
 	private Class loaderClass;

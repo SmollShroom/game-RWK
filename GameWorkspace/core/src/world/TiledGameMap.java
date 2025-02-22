@@ -13,9 +13,7 @@ public class TiledGameMap extends GameMap {
 
 	TiledMap tiledMap;
 	OrthogonalTiledMapRenderer tiledMapRenderer;
-	
-	
-	
+		
 	public TiledGameMap() {
 		tiledMap = new TmxMapLoader().load("data/Tile/Overworld01.tmx");
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);

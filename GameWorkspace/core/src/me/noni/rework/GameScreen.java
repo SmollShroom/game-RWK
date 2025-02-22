@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
+import entities.Entity;
 import world.GameMap;
 import world.TiledGameMap;
 
@@ -43,6 +44,7 @@ public class GameScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
+
 //		// create a Rectangle to logically represent the bucket
 //		player = new Rectangle();
 //		player.x = playerScreenX;
@@ -58,12 +60,12 @@ public class GameScreen implements Screen {
 	@Override
 	public void render(float delta) {
 
-//		if(Gdx.input.isTouched()) {				//dragging the camera
-//			camera.translate(-Gdx.input.getDeltaX(), Gdx.input.getDeltaY());
-//			
-//			// tell the camera to update its matrices.
-//			camera.update();
-//		}
+		if(Gdx.input.isTouched()) {				//dragging the camera
+			camera.translate(-Gdx.input.getDeltaX(), Gdx.input.getDeltaY());
+			
+			// tell the camera to update its matrices.
+			camera.update();
+		}
 //		if(Gdx.input.justTouched()) {			//get the clicked tile infos
 //			Vector3 pos = camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(),0));	//location in the gameWorld
 //			TileType type = gameMap.getTileTypeByLocation(1, pos.x, pos.y);
@@ -79,8 +81,7 @@ public class GameScreen implements Screen {
 		    gameViewport.apply();
 			game.batch.setProjectionMatrix(camera.combined);	// tell the SpriteBatch to render in the coordinate system specified by the camera.
 			
-			gameMap.render(camera, game.batch);
-			gameMap.update(delta);
+			
 			
 				game.batch.begin();		///////////////////////////////////////////				
 				
@@ -89,7 +90,9 @@ public class GameScreen implements Screen {
 				
 				game.batch.end();		///////////////////////////////////////////
 
-		
+				gameMap.update(delta);
+				gameMap.render(camera, game.batch);
+				
 
 	}
 
